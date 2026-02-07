@@ -14,6 +14,7 @@ body {
     background:#142a0f;
     color:#ffffff;
     scroll-behavior:smooth;
+    overflow-x:hidden;
 }
 
 /* ---------- NAVBAR ---------- */
@@ -91,7 +92,7 @@ header p {
     font-weight:600;
     transition:.3s;
 }
-.btn:hover {background:#0ea5e9;color:white;}
+.btn:hover {background:#57e90e;color:white;}
 
 /* ---------- SECTIONS ---------- */
 section {padding:100px 20px;text-align:center;}
@@ -110,15 +111,37 @@ p.section-text {
     margin-top:50px;
 }
 .card {
-    background:#1e293b;
-    padding:35px;
-    border-radius:16px;
-    transition:.3s;
+    position: relative;
+    background: #1e293b;
+    padding: 35px;
+    border-radius: 16px;
+    transition: .3s;
+    border: 1px solid rgba(255,255,255,0.05);
 }
+
 .card:hover {
-    transform:translateY(-10px);
-    background:#273549;
+    transform: translateY(-10px);
+    box-shadow: 0 0 25px rgba(56,189,248,0.3);
 }
+
+.card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 16px;
+    padding: 1px;
+    background: linear-gradient(120deg, #6bf838, #0ea5e9, transparent);
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: 0.4s;
+}
+
+.card:hover::before {
+    opacity: 1;
+}
+
 
 /* ---------- PROCESS STEPS ---------- */
 .step {
@@ -193,7 +216,7 @@ p.section-text {
 }
 
 .footer a:hover {
-    color: #38bdf8;
+    color: #ab7a18;
     transform: translateX(5px);
 }
 
@@ -211,13 +234,14 @@ p.section-text {
     color: #94a3b8;
 }
 
+
 /* ===== HERO PREMIUM DESIGN ===== */
 .hero {
     position: relative;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 180px 8% 120px;
+    justify-content: center;
+    padding: 380px 28% 220px;
     gap: 60px;
     flex-wrap: wrap;
     overflow: hidden;
@@ -225,8 +249,8 @@ p.section-text {
 }
 
 .hero-content {
-    flex: 1;
-    min-width: 320px;
+    flex: 11;
+    min-width: 1320px;
     animation: fadeUp 1s ease forwards;
 }
 
@@ -249,19 +273,18 @@ p.section-text {
 }
 
 .hero-image {
-    flex: 1;
-    min-width: 320px;
-    text-align: center;
+    width: 200%;
+    max-width: 1650px;
     animation: fadeUp 1.3s ease forwards;
 }
 
 /* Glassmorphism Card */
 .image-glass {
-    padding: 15px;
-    border-radius: 25px;
+    padding: 35px;
+    border-radius: 15px;
     background: rgba(255,255,255,0.05);
     backdrop-filter: blur(10px);
-    box-shadow: 0 25px 60px rgba(0,0,0,0.6);
+    box-shadow: 10px 15px 90px rgba(209, 255, 2, 0.986);
     display: inline-block;
 }
 
@@ -317,24 +340,45 @@ p.section-text {
         margin: auto;
     }
 }
-/* Typing Effect */
+/* ===== PREMIUM TYPING EFFECT ===== */
+.typing {
+    display: inline-block;
+    position: relative;
+    color: #38bdf8;
+    font-weight: 700;
+}
+
+/* The text that changes */
 .typing::after {
-    content: "Smart Digital Solutions";
-    animation: typing 4s steps(26) infinite alternate, blink 0.8s infinite;
+    content: "";
+    animation: words 12s infinite, typing 3s steps(22) infinite alternate, blink 0.8s infinite;
     white-space: nowrap;
     overflow: hidden;
     border-right: 3px solid #38bdf8;
-    display: inline-block;
+    padding-right: 6px;
 }
 
+/* Different phrases */
+@keyframes words {
+    0%   { content: "Smart Digital Solutions"; }
+    33%  { content: "Automation That Scales"; }
+    66%  { content: "Technology That Grows Business"; }
+    100% { content: "Smart Digital Solutions"; }
+}
+
+/* Smooth typing width animation */
 @keyframes typing {
-    from { width: 0 }
-    to { width: 26ch }
+    0%   { width: 0 }
+    40%  { width: 22ch }
+    60%  { width: 22ch }
+    100% { width: 0 }
 }
 
+/* Cursor blink */
 @keyframes blink {
     50% { border-color: transparent }
 }
+
 
 /* Scroll Reveal */
 .reveal {
@@ -361,6 +405,108 @@ p.section-text {
     0%,100% { transform: translateY(0px); }
     50% { transform: translateY(-15px); }
 }
+.nav-links {
+    display:flex;
+    align-items:center;
+    gap:28px;
+}
+
+/* Normal Links */
+.nav-links a {
+    position: relative;
+    text-decoration: none;
+    color: #cbd5e1;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+/* Animated Underline */
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    left: 0;
+    bottom: -4px;
+    background: linear-gradient(90deg, #beb6b2, #02283a);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #89b70a;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* Contact Button Style */
+.nav-cta {
+    background:linear-gradient(90deg,#38bdf8,#0ea5e9);
+    color:#0f172a !important;
+    padding:10px 22px;
+    border-radius:30px;
+    font-weight:600;
+    transition:.3s;
+}
+.nav-cta:hover {
+    box-shadow:0 0 14px rgba(56,189,248,0.6);
+    transform:translateY(-2px);
+}
+
+nav.scrolled {
+    background: rgba(15, 23, 42, 0.95);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    transition: all 0.3s ease;
+}
+.bg-grid {
+    position: fixed;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+    z-index: -1;
+    animation: moveGrid 20s linear infinite;
+}
+
+@keyframes moveGrid {
+    from { transform: translateY(0); }
+    to { transform: translateY(60px); }
+}
+.particles {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 30% 40%, rgba(56,189,248,0.15), transparent 40%),
+                radial-gradient(circle at 70% 60%, rgba(14,165,233,0.12), transparent 40%);
+    z-index: -1;
+}
+.nav-links a.active {
+    color: white;
+}
+.nav-links a.active::after {
+    width: 100%;
+}
+.btn {
+    margin-top:30px;
+    display:inline-block;
+    padding:14px 32px;
+    background:#26ff04;
+    color:#2a270f;
+    border-radius:30px;
+    text-decoration:none;
+    font-weight:600;
+    transition:.3s;
+    box-shadow: 0 0 0 rgba(239, 4, 4, 0.7);
+    animation: pulse 2.5s infinite;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(98, 248, 56, 0.6); }
+    70% { box-shadow: 0 0 0 18px rgba(56,189,248,0); }
+    100% { box-shadow: 0 0 0 0 rgba(56,189,248,0); }
+}
 
 </style>
 </head>
@@ -368,26 +514,32 @@ p.section-text {
 <body>
 
 <nav>
+    <div class="bg-grid"></div>
+
     <div class="logo">
         <div class="logo-circle">
             <img src="logo.jpeg" alt="CrestadTech Logo">
         </div>
     </div>
 
-    <div>
+    <div class="nav-links">
         <a href="#services">Services</a>
         <a href="#process">Process</a>
         <a href="#about">About</a>
-        <a href="#contact">Contact</a>
+        <a href="#contact" class="nav-cta">Contact</a>
     </div>
+
 </nav>
 
 <header class="hero">
+    <div class="particles"></div>
+
     <div class="hero-content">
         <h1>
-        <span class="gradient-text typing"></span><br>
+        <span class="typing"></span><br>
         for Modern Businesses
         </h1>
+
         <p>We help companies grow faster with powerful technology, automation, and custom-built digital systems.</p>
         <a href="#contact" class="btn">Start Your Project</a>
     </div>
@@ -495,15 +647,18 @@ p.section-text {
                 <span>CrestAd Tech</span>
             </div>
             <p>Building smart digital solutions that help businesses grow faster with technology and automation.</p>
+        
         </div>
-
         <div class="footer-links">
             <h4>Company</h4>
-            <a href="#about">About Us</a>
-            <a href="#services">Services</a>
-            <a href="#process">Our Process</a>
-            <a href="#contact">Contact</a>
+            <ul>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#process">Our Process</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
         </div>
+
 
         <div class="footer-contact">
             <h4>Contact</h4>
@@ -546,6 +701,34 @@ counters.forEach(counter => {
   };
   updateCount();
 });
+
+// Navbar scroll effect
+const nav = document.querySelector("nav");
+window.addEventListener("scroll", () => {
+  nav.classList.toggle("scrolled", window.scrollY > 50);
+});
+
+// Active menu highlight on scroll
+const sections = document.querySelectorAll("section");
+const navLinks = document.querySelectorAll(".nav-links a");
+
+window.addEventListener("scroll", () => {
+  let current = "";
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop - 120;
+    if (pageYOffset >= sectionTop) {
+      current = section.getAttribute("id");
+    }
+  });
+
+  navLinks.forEach(a => {
+    a.classList.remove("active");
+    if (a.getAttribute("href") === "#" + current) {
+      a.classList.add("active");
+    }
+  });
+});
+
 </script>
 
 </body>
