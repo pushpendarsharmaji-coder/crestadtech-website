@@ -25,11 +25,12 @@ nav {
     top:0;
     background:rgba(71, 74, 69, 0.85);
     backdrop-filter: blur(10px);
-    padding:15px 40px;
+    padding:10px 16px;
     display:flex;
     justify-content:space-between;
     align-items:center;
     z-index:1000;
+    gap: 8px;
 }
 nav h2 {color:#38bdf8;font-weight:700;}
 nav a {
@@ -50,8 +51,8 @@ nav a:hover {color:white;}
 }
 
 .logo-circle {
-    width: 120px;
-    height: 120px;
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
     overflow: hidden;
     background: #1e293b;
@@ -242,7 +243,7 @@ p.section-text {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 380px 28% 220px;
+    padding: 180px 8% 20px;
     gap: 60px;
     flex-wrap: wrap;
     overflow: hidden;
@@ -326,86 +327,132 @@ p.section-text {
 }
 
 /* Mobile */
-/* ================= MOBILE RESPONSIVE ================= */
+@media (max-width: 400px) {
+    .hero { text-align:center; padding-top:140px; }
+    .hero-content p { margin:auto; }
+}
+
+
+@media (max-width: 400px) {
+    .hero {
+        text-align: center;
+        padding-top: 140px;
+    }
+    .hero-content p {
+        margin: auto;
+    }
+}
+
+/* ================= MOBILE NAV + HERO FIX ================= */
 @media (max-width: 768px) {
 
-    /* NAVBAR */
-    nav {
-        padding: 12px 20px;
-        flex-direction: column;
-        gap: 10px;
-    }
+nav {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-areas:
+      "logo cta"
+      "links links";
+    align-items: center;
+    padding: 10px 16px;
+    gap: 8px;
+  }
 
-    .nav-links {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 16px;
-    }
+  .logo {
+    grid-area: logo;
+    justify-self: start;
+  }
 
-    /* HERO SECTION */
-    .hero {
-        padding: 140px 20px 80px;
-        text-align: center;
-    }
+  .nav-cta {
+    grid-area: cta;
+    justify-self: end;
+    margin: 0;
+  }
 
-    .hero-content h1 {
-        font-size: 34px;
-        line-height: 1.3;
-    }
+  .nav-links {
+    grid-area: links;
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    margin-top: 6px;
+    width: 100%;
+  }
 
-    .hero-content p {
-        font-size: 16px;
-    }
+  .nav-links a {
+    margin: 0;
+    font-size: 14px;
+  }
 
-    .hero-image {
-        max-width: 100%;
-    }
+  .logo-circle {
+    width: 46px;
+    height: 46px;
+  }
+}
 
-    /* SECTIONS */
-    section {
-        padding: 70px 20px;
-    }
+  /* PUSH HERO DOWN so navbar doesn't cover it */
+  .hero {
+    padding-top: 200px !important;
+  }
 
-    h2 {
-        font-size: 26px;
-    }
+  /* FIX HERO LAYOUT */
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    gap: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 
-    .section-text {
-        font-size: 15px;
-    }
+  .hero-content {
+    min-width: 0 !important;
+    flex: 1 1 100%;
+  }
 
-    /* CARDS */
-    .grid {
-        grid-template-columns: 1fr;
-    }
+  .hero-content h1 {
+    font-size: 28px;
+    line-height: 1.3;
+  }
 
-    .card {
-        padding: 25px;
-    }
+  .hero-content p {
+    font-size: 15px;
+    max-width: 100%;
+    margin: auto;
+  }
 
-    /* STATS */
-    .stats {
-        grid-template-columns: 1fr 1fr;
-    }
+  /* STOP IMAGE OVERFLOW */
+  .hero-image {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
 
-    .stat h3 {
-        font-size: 28px;
-    }
+  .image-glass {
+    padding: 15px;
+  }
 
-    /* CTA */
-    .cta {
-        padding: 70px 20px;
-    }
+  /* GENERAL SPACING */
+  section {
+    padding: 70px 20px;
+  }
 
-    /* FOOTER */
-    .footer-container {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
+  h2 {
+    font-size: 26px;
+  }
 
-    .footer-logo {
-        justify-content: center;
-    }
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stats {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .footer-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .footer-logo {
+    justify-content: center;
+  }
 }
 
 /* ===== PREMIUM TYPING EFFECT ===== */
@@ -534,7 +581,7 @@ nav.scrolled {
     background-image:
         linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
         linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-    background-size: 60px 60px;
+    background-size: 30px 30px;
     z-index: -1;
     animation: moveGrid 20s linear infinite;
 }
