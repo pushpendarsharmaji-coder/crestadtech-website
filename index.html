@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CrestadTech | Smart Digital Solutions</title>
+<title>CrestAd Tech | Smart Digital Solutions</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
@@ -151,13 +151,66 @@ p.section-text {
 .cta h2 {margin-bottom:15px;}
 
 /* ---------- FOOTER ---------- */
-footer {
-    background:#0b1220;
-    padding:30px;
-    text-align:center;
-    font-size:14px;
-    color:#94a3b8;
+.footer {
+    background: linear-gradient(135deg, #0b1220, #0f172a);
+    padding: 70px 8% 30px;
+    color: #cbd5e1;
 }
+
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 20px;
+    font-weight: 600;
+    color: #38bdf8;
+}
+
+.footer-logo img {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+}
+
+.footer h4 {
+    margin-bottom: 15px;
+    color: white;
+}
+
+.footer a {
+    display: block;
+    color: #cbd5e1;
+    text-decoration: none;
+    margin-bottom: 8px;
+    transition: 0.3s;
+}
+
+.footer a:hover {
+    color: #38bdf8;
+    transform: translateX(5px);
+}
+
+.footer-brand p {
+    margin-top: 15px;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid #1e293b;
+    padding-top: 20px;
+    font-size: 14px;
+    color: #94a3b8;
+}
+
 /* ===== HERO PREMIUM DESIGN ===== */
 .hero {
     position: relative;
@@ -423,8 +476,8 @@ footer {
 </section>
 
 <section id="about" class="reveal">
-    <h2>About CrestadTech</h2>
-    <p class="section-text">CrestadTech is a technology solutions company focused on helping businesses innovate, automate, and scale. Our mission is to deliver reliable digital systems that create real impact.</p>
+    <h2>About CrestAd Tech</h2>
+    <p class="section-text">CrestAd Tech is a technology solutions company focused on helping businesses innovate, automate, and scale. Our mission is to deliver reliable digital systems that create real impact.</p>
 </section>
 
 <section class="cta reveal" id="contact">
@@ -433,9 +486,39 @@ footer {
     <a href="mailto:info@crestadtech.in" class="btn">Contact Us</a>
 </section>
 
-<footer>
-    © 2026 CrestadTech.in • All Rights Reserved
+<footer class="footer">
+    <div class="footer-container">
+
+        <div class="footer-brand">
+            <div class="footer-logo">
+                <img src="logo.jpeg" alt="CrestadTech Logo">
+                <span>CrestAd Tech</span>
+            </div>
+            <p>Building smart digital solutions that help businesses grow faster with technology and automation.</p>
+        </div>
+
+        <div class="footer-links">
+            <h4>Company</h4>
+            <a href="#about">About Us</a>
+            <a href="#services">Services</a>
+            <a href="#process">Our Process</a>
+            <a href="#contact">Contact</a>
+        </div>
+
+        <div class="footer-contact">
+            <h4>Contact</h4>
+            <p>Email: info@crestadtech.in</p>
+            <p>Support: support@crestadtech.in</p>
+            <p>India</p>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        © 2026 CrestAdTech.in • All Rights Reserved
+    </div>
 </footer>
+
 <script>
 // Scroll Reveal
 const reveals = document.querySelectorAll(".reveal");
